@@ -1,0 +1,337 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    background-image: url("imgs/background.jpg");
+}
+
+svg {
+    height: 200px;
+    width: 240px;
+}
+
+path {
+    stroke: white;
+    stroke-width: 5px;
+    fill: orange;
+}
+
+h1 {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 80px;
+}
+
+h2 {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-size: 80px;
+}
+
+button {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  background-color: #90a955;
+  font-size: 20px;
+  width: 450px;
+  height: 75px;
+  border-radius: 5px;
+  color: #FFFFFF;
+  cursor: pointer;
+  background-color: #a7c957;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  /* transform: translateZ(0);
+  transition: filter .2s; */
+}
+
+button:after {
+  background-clip: padding-box;
+  background-color: #6a994e;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+button:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+#loading {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(62, 80, 60, 1);
+  z-index: 99;
+}
+
+#clear-background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 97;
+}
+
+#loading-image {
+  z-index: 100;
+}
+
+.number{
+  position: absolute;
+}
+
+#cross, #check {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 200px;
+    z-index: 2;
+}
+
+.time-score-container span {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #ffd60a;
+    font-size: 30px;
+    display: inline;
+    margin: 0 20px;
+}
+
+#timer {
+  position: absolute;
+  left:20px;
+  width: 100px;
+}
+
+#score {
+  position: absolute;
+  right:0;
+  width: 120px;
+}
+
+.vl {
+  border-left: 2px solid gray;
+  opacity: 0.2;
+  /* margin: 0 20px; */
+  height: 500px;
+  display: inline;
+}
+
+#score-text {
+  color: white;
+}
+
+#volume {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  transform: translate(20px, 5px);
+  top: 20px;
+}
+
+#info {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  left: 0;
+  transform: translate(-40px, 3px);
+
+}
+
+#info:hover, #volume:hover {
+  cursor: pointer;
+}
+
+.time-score-container {
+  position: relative;
+  background-color: rgb(62, 80, 60, 0.2);
+  width: 450px;
+  float: right;
+  transform: translateX(20px);
+  top: 20px;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 20px;
+}
+
+#addScore {
+  position: absolute;
+  top: 55px;
+  right: 50px;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+#endScreen, #instructions {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 400px;
+  width: 600px;
+  background-color: lightgray;
+  border-radius: 10px;
+  z-index: 99;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: rgb(62, 80, 60, 1);
+  z-index: 99;
+  /* opacity: .9; */
+}
+
+#playAgainButton {
+  bottom: 20%;
+}
+
+#closeButton {
+  bottom: 15%;
+}
+
+#instructions-text {
+  color: white;
+  text-align: center;
+  font-size: 45px;
+  width: 80%;
+}
+
+.score-move{
+  animation: scoreMove 300ms;
+}
+@keyframes scoreMove {
+  0%,
+  50% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+   
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  
+  }
+}
+
+.grow {
+    animation: grow 200ms;
+}
+@keyframes grow {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.pulse {
+    animation: pulse 200ms;
+}
+@keyframes pulse {
+    0% {
+      transform: scale(0.95);
+    }
+    
+    70% {
+      transform: scale(1);
+    }
+    
+    100% {
+      transform: scale(0.95);
+    }
+  }
+
+.shrink2 {
+    animation: shrink2 300ms;
+}
+@keyframes shrink2 {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0);
+    }
+}
+
+  .shake {
+      animation: shake 500ms;
+  }
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+  .bounce-in {
+    animation: bounce-in 300ms ease;
+  }
+  @keyframes bounce-in {
+    0% {
+      opacity: 0;
+      transform: scale(.3);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    70% { transform: scale(.9); }
+    100% { transform: scale(1); }
+  }
+
+  .bounce-out {
+    animation: bounce-out 300ms ease;
+  }
+  @keyframes bounce-out {
+    0% { transform: scale(1); }
+    25% { transform: scale(.95); }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(.3);
+    }
+  }
+  
